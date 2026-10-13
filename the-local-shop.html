@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#168344">
+<title>The Local Shop | Fresh Finds, Best Prices</title>
+<style>
+:root{--green:#168344;--green-dark:#0d5d30;--mint:#eaf7ee;--ink:#1f2a24;--muted:#68746c;--line:#e1e9e3;--white:#fff;--shadow:0 12px 32px rgba(19,65,36,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fbfdfb;line-height:1.5}button,input,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.08rem}.brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:var(--green);color:#fff;font-size:23px}.brand small{display:block;font-weight:500;color:var(--muted);font-size:.75rem}.nav-actions{display:flex;gap:10px;align-items:center}.nav-link{font-weight:700;font-size:.92rem}.cart-pill{background:var(--green);color:white;border:0;border-radius:999px;padding:10px 15px;font-weight:700}
+.hero{min-height:420px;display:flex;align-items:center;position:relative;isolation:isolate;overflow:hidden;background:#173c25 url('https://i.ibb.co/9kFMx9gN/Screenshot-20261013-074426-Chrome.jpg') center/cover no-repeat}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,35,17,.84),rgba(5,35,17,.43) 58%,rgba(5,35,17,.12));z-index:-1}.hero-content{padding:68px 0;color:#fff;max-width:650px}.eyebrow{display:inline-block;padding:7px 12px;border:1px solid #ffffff70;border-radius:999px;background:#ffffff18;font-size:.82rem;font-weight:700;letter-spacing:.03em}.hero h1{font-size:clamp(2.2rem,6vw,4.4rem);line-height:1.06;letter-spacing:-.04em;margin:18px 0}.hero p{font-size:1.08rem;max-width:490px;color:#eef7ef}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:13px 18px;font-weight:800;transition:transform .18s,background .18s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--green);color:#fff}.btn-primary:hover{background:var(--green-dark)}.btn-light{background:#fff;color:var(--green-dark)}.btn-outline{background:white;border:1px solid var(--line);color:var(--ink)}.section{padding:52px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:22px}.section-head h2{margin:0;font-size:clamp(1.65rem,4vw,2.25rem);letter-spacing:-.03em}.section-head p{margin:5px 0 0;color:var(--muted)}.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-25px;position:relative;z-index:2}.benefit{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:16px;padding:18px;display:flex;gap:12px;align-items:center}.benefit-icon{font-size:1.6rem}.benefit strong{display:block}.benefit span{font-size:.85rem;color:var(--muted)}
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.product{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 5px 18px #123b1d08;display:flex;flex-direction:column}.product img{width:100%;height:210px;object-fit:cover;background:var(--mint)}.product-info{padding:16px;display:flex;flex:1;flex-direction:column}.product-tag{font-size:.75rem;color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:.06em}.product h3{margin:6px 0;font-size:1.1rem}.product-desc{font-size:.88rem;color:var(--muted);margin:0 0 14px}.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto}.price{font-weight:900;font-size:1.15rem}.add-btn{padding:10px 12px;border-radius:10px;font-size:.9rem}
+.shop-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.panel h2,.panel h3{margin-top:0}.cart-items{display:grid;gap:13px}.empty{color:var(--muted);padding:18px 0}.cart-row{display:grid;grid-template-columns:62px 1fr auto;gap:12px;align-items:center;padding-bottom:13px;border-bottom:1px solid var(--line)}.cart-row img{width:62px;height:62px;object-fit:cover;border-radius:12px;background:var(--mint)}.cart-name{font-weight:800}.cart-price{font-size:.88rem;color:var(--muted)}.qty{display:flex;align-items:center;gap:8px;margin-top:7px}.qty button{width:28px;height:28px;border:1px solid var(--line);background:#fff;border-radius:8px;font-weight:800}.remove{border:0;background:transparent;color:#b42318;font-size:.82rem;padding:4px}.cart-total{display:flex;justify-content:space-between;align-items:center;font-size:1.15rem;font-weight:900;padding:18px 0 12px}.form-grid{display:grid;gap:13px}.field label{display:block;font-size:.88rem;font-weight:800;margin-bottom:6px}.field input,.field textarea{width:100%;border:1px solid #d4dfd7;border-radius:11px;padding:12px 13px;background:#fff;outline:none}.field input:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #1683441a}.field textarea{resize:vertical;min-height:82px}.form-note{font-size:.82rem;color:var(--muted);margin:0}.order-actions{display:grid;gap:10px;margin-top:16px}.order-actions .btn{width:100%}.status{font-size:.88rem;color:var(--green-dark);min-height:1.3em;margin:10px 0 0}.how{background:var(--mint);border-radius:16px;padding:20px;margin-top:20px}.how p{margin:5px 0;color:#43564a;font-size:.92rem}
+footer{background:#102b1a;color:#eaf4ec;padding:30px 0;margin-top:20px}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-inner p{margin:5px 0;color:#bfd0c2;font-size:.88rem}.float-wa{position:fixed;right:17px;bottom:17px;z-index:30;width:58px;height:58px;display:grid;place-items:center;background:#20bd5a;color:white;border-radius:50%;font-size:27px;box-shadow:0 8px 24px #0003;border:3px solid white}.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,120px);background:#173c25;color:#fff;padding:12px 18px;border-radius:12px;z-index:50;transition:transform .25s;box-shadow:var(--shadow)}.toast.show{transform:translate(-50%,0)}
+@media(max-width:760px){.nav{min-height:64px}.nav-link{display:none}.hero{min-height:410px}.hero-content{padding:55px 0}.benefits{grid-template-columns:1fr;margin-top:14px}.benefit{padding:14px}.section{padding:38px 0}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product img{height:155px}.product-info{padding:12px}.product h3{font-size:1rem}.product-desc{font-size:.82rem}.product-bottom{align-items:flex-start;flex-direction:column}.add-btn{width:100%}.shop-layout{grid-template-columns:1fr}.panel{padding:17px}.section-head{align-items:flex-start;flex-direction:column}}
+@media(max-width:390px){.products{grid-template-columns:1fr}.product img{height:210px}.hero h1{font-size:2.15rem}.brand{font-size:.95rem}.cart-pill{padding:9px 11px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="The Local Shop home"><span class="brand-mark">🛒</span><span>The Local Shop<small>Fresh Finds, Best Prices</small></span></a>
+    <div class="nav-actions"><a class="nav-link" href="#products">Products</a><a class="nav-link" href="#order">How to Order</a><button class="cart-pill" onclick="document.querySelector('#cart').scrollIntoView({behavior:'smooth'})">🛍️ Cart <span id="cart-count">0</span></button></div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <span class="eyebrow">YOUR NEIGHBOURHOOD SHOP</span>
+    <h1>Everything You Need, All in One Place!</h1>
+    <p>Everyday groceries and tasty snacks at prices you'll love. Shop local, shop easy.</p>
+    <a class="btn btn-light" href="#products">Shop Now <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<div class="container benefits" aria-label="Shop benefits">
+  <div class="benefit"><span class="benefit-icon">🥬</span><div><strong>Everyday Essentials</strong><span>Useful products for your home</span></div></div>
+  <div class="benefit"><span class="benefit-icon">💚</span><div><strong>Friendly Local Service</strong><span>Your neighbourhood shop</span></div></div>
+  <div class="benefit"><span class="benefit-icon">📲</span><div><strong>Easy Ordering</strong><span>Order by WhatsApp or email</span></div></div>
+</div>
+
+<section class="section container" id="products">
+  <div class="section-head"><div><h2>Shop Our Products</h2><p>Pick your favourites and add them to your cart.</p></div><span class="product-tag">LOCAL PICKS ✦</span></div>
+  <div class="products" id="product-list"></div>
+</section>
+
+<section class="section container" id="order">
+  <div class="section-head"><div><h2>Your Cart & Order</h2><p>Review your items, fill in your delivery details, then send your order.</p></div></div>
+  <div class="shop-layout">
+    <section class="panel" id="cart">
+      <h3>🛒 Your Shopping Cart</h3>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-total"><span>Total</span><span id="cart-total">₹0.00</span></div>
+      <button class="btn btn-outline" type="button" onclick="clearCart()">Clear Cart</button>
+    </section>
+    <section class="panel">
+      <h3>📦 Delivery Details</h3>
+      <form id="order-form" class="form-grid">
+        <div class="field"><label for="customer-name">Full name *</label><input id="customer-name" name="name" autocomplete="name" placeholder="Enter your full name" required></div>
+        <div class="field"><label for="customer-phone">Phone number *</label><input id="customer-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Enter your phone number" required></div>
+        <div class="field"><label for="customer-address">Delivery address *</label><textarea id="customer-address" name="address" autocomplete="street-address" placeholder="Village/town, house or landmark, PIN code" required></textarea></div>
+        <p class="form-note">Your order is not sent automatically. Choose WhatsApp or email below; your messaging app/email will open so you can review and send it yourself.</p>
+        <div class="order-actions">
+          <button class="btn btn-primary" type="button" onclick="sendWhatsApp()">🟢 Order via WhatsApp</button>
+          <button class="btn btn-outline" type="button" onclick="sendEmail()">✉️ Order via Email</button>
+        </div>
+        <p class="status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+  <div class="how"><strong>How it works</strong><p>1. Add products to your cart. 2. Enter your name, phone and delivery address. 3. Tap WhatsApp or Email, check the prepared order message and press Send in that app. The shop will confirm availability, delivery and final details with you.</p></div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner"><div><strong>🛒 The Local Shop</strong><p>Fresh Finds, Best Prices</p></div><div><p>Contact: <a href="mailto:nizanur@gmail.com">nizanur@gmail.com</a></p><p>Made for easy local shopping.</p></div><p>© <span id="year"></span> The Local Shop</p></div>
+</footer>
+<a class="float-wa" id="floating-wa" href="https://wa.me/9395026609" target="_blank" rel="noopener" aria-label="Chat with The Local Shop on WhatsApp">☏</a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* EDIT SHOP SETTINGS HERE */
+const SHOP = {
+  name: "The Local Shop",
+  email: "nizanur@gmail.com",
+  whatsapp: "9395026609", // International format: country code + number, digits only.
+  currency: "INR",
+  locale: "en-IN"
+};
+
+/* EDIT PRODUCT NAMES, PRICES, DESCRIPTIONS AND IMAGE URLS HERE.
+   Replace sample names/prices with the actual products sold by your shop. */
+const PRODUCTS = [
+  { id: "grocery-1", name: "Daily Grocery Pack", price: 99, description: "Everyday essentials for your home.", category: "Grocery", image: "https://i.ibb.co/7xShCVjf/Screenshot-20261013-072524-Chrome.jpg" },
+  { id: "snack-1", name: "Crunchy Snack Pack", price: 40, description: "A tasty snack for your break.", category: "Snacks", image: "https://i.ibb.co/Wp56S2kp/Screenshot-20261013-072451-Chrome.jpg" },
+  { id: "grocery-2", name: "Kitchen Essentials", price: 75, description: "Handy essentials for everyday cooking.", category: "Essentials", image: "https://i.ibb.co/bjtsLbd5/Screenshot-20261013-072543-Chrome.jpg" }
+];
+
+const CART_KEY = "theLocalShopCart_v1";
+let cart = loadCart();
+const money = amount => new Intl.NumberFormat(SHOP.locale, {style:"currency", currency:SHOP.currency, maximumFractionDigits:2}).format(amount);
+const safeText = value => String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+
+function loadCart(){
+  try {
+    const saved = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+    if (!Array.isArray(saved)) return [];
+    return saved.map(item => ({id:String(item.id), qty:Math.max(1,Math.floor(Number(item.qty)||1))}))
+      .filter(item => PRODUCTS.some(p => p.id === item.id));
+  } catch { return []; }
+}
+function saveCart(){ try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch {} }
+function getProduct(id){ return PRODUCTS.find(p => p.id === id); }
+function getCount(){ return cart.reduce((sum,item)=>sum+item.qty,0); }
+function getTotal(){ return cart.reduce((sum,item)=>sum+getProduct(item.id).price*item.qty,0); }
+
+function renderProducts(){
+  document.getElementById("product-list").innerHTML = PRODUCTS.map(p => `
+    <article class="product">
+      <img src="${safeText(p.image)}" alt="${safeText(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23eaf7ee%22/%3E%3Ctext x=%22200%22 y=%22155%22 text-anchor=%22middle%22 font-size=%2260%22%3E%F0%9F%9B%92%3C/text%3E%3C/svg%3E'">
+      <div class="product-info"><span class="product-tag">${safeText(p.category)}</span><h3>${safeText(p.name)}</h3><p class="product-desc">${safeText(p.description)}</p>
+      <div class="product-bottom"><span class="price">${money(p.price)}</span><button class="btn btn-primary add-btn" type="button" onclick="addToCart('${p.id}')">＋ Add to Cart</button></div></div>
+    </article>`).join("");
+}
+function renderCart(){
+  const root = document.getElementById("cart-items");
+  if(!cart.length){root.innerHTML='<p class="empty">Your cart is empty. Add a few products to get started!</p>';}
+  else root.innerHTML = cart.map(item=>{
+    const p=getProduct(item.id);
+    return `<div class="cart-row"><img src="${safeText(p.image)}" alt=""><div><div class="cart-name">${safeText(p.name)}</div><div class="cart-price">${money(p.price)} each</div><div class="qty"><button type="button" aria-label="Decrease ${safeText(p.name)} quantity" onclick="changeQty('${p.id}',-1)">−</button><span>${item.qty}</span><button type="button" aria-label="Increase ${safeText(p.name)} quantity" onclick="changeQty('${p.id}',1)">＋</button></div></div><div style="text-align:right"><strong>${money(p.price*item.qty)}</strong><br><button class="remove" type="button" onclick="removeItem('${p.id}')">Remove</button></div></div>`;
+  }).join("");
+  document.getElementById("cart-count").textContent=getCount();
+  document.getElementById("cart-total").textContent=money(getTotal());
+}
+function refreshCart(){saveCart();renderCart();}
+function addToCart(id){
+  const found=cart.find(item=>item.id===id);
+  if(found)found.qty++;else cart.push({id,qty:1});
+  refreshCart();showToast(getProduct(id).name+" added to cart");
+}
+function changeQty(id,delta){
+  const item=cart.find(item=>item.id===id);if(!item)return;
+  item.qty+=delta;if(item.qty<=0)cart=cart.filter(row=>row.id!==id);
+  refreshCart();
+}
+function removeItem(id){cart=cart.filter(item=>item.id!==id);refreshCart();}
+function clearCart(){cart=[];refreshCart();showToast("Cart cleared");}
+function showToast(message){
+  const el=document.getElementById("toast");el.textContent=message;el.classList.add("show");
+  clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>el.classList.remove("show"),2300);
+}
+function getCustomer(){
+  const form=document.getElementById("order-form");
+  if(!form.reportValidity())return null;
+  if(!cart.length){document.getElementById("form-status").textContent="Please add at least one product to your cart first.";document.getElementById("products").scrollIntoView({behavior:"smooth"});return null;}
+  return {
+    name:document.getElementById("customer-name").value.trim(),
+    phone:document.getElementById("customer-phone").value.trim(),
+    address:document.getElementById("customer-address").value.trim()
+  };
+}
+function makeOrderMessage(customer){
+  const lines=cart.map(item=>{const p=getProduct(item.id);return `• ${p.name} × ${item.qty} — ${money(p.price*item.qty)}`;});
+  return `ORDER REQUEST — ${SHOP.name}\n\nCustomer: ${customer.name}\nPhone: ${customer.phone}\nDelivery address: ${customer.address}\n\nItems:\n${lines.join("\n")}\n\nTotal: ${money(getTotal())}\n\nPlease confirm product availability, delivery charges and delivery time.`;
+}
+function sendWhatsApp(){
+  const customer=getCustomer();if(!customer)return;
+  const message=makeOrderMessage(customer);
+  const url=`https://wa.me/${SHOP.whatsapp}?text=${encodeURIComponent(message)}`;
+  document.getElementById("form-status").textContent="WhatsApp is opening with your order details. Review and press Send there.";
+  window.open(url,"_blank","noopener,noreferrer");
+}
+function sendEmail(){
+  const customer=getCustomer();if(!customer)return;
+  const subject=`Order Request - ${SHOP.name}`;
+  const body=makeOrderMessage(customer);
+  const url=`mailto:${SHOP.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById("form-status").textContent="Your email app is opening with the order details. Review and press Send there.";
+  window.location.href=url;
+}
+document.getElementById("floating-wa").href=`https://wa.me/${SHOP.whatsapp}`;
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();renderCart();
+</script>
+</body>
+</html>
